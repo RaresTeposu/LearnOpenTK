@@ -2,14 +2,12 @@
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Desktop;
 
-namespace LearnOpenTK
+namespace My_Tests
 {
-    public static class Program
+    class Program
     {
-        private static void Main()
+        static void Main(string[] args)
         {
-
-            // A predefined struct that contains information about the window.
             var nativeWindowSettings = new NativeWindowSettings()
             {
                 Size = new Vector2i(800, 600),
@@ -18,15 +16,11 @@ namespace LearnOpenTK
                 Flags = ContextFlags.ForwardCompatible,
             };
 
-            // To create a new window, create a class that extends GameWindow, then call Run() on it.
-            // using = https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-statement
-
             using (var window = new Window(GameWindowSettings.Default, nativeWindowSettings))
             {
                 window.Run();
             }
 
-            // And that's it! That's all it takes to create a window with OpenTK.
         }
     }
 }

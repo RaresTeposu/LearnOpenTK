@@ -8,6 +8,7 @@ namespace LearnOpenTK
     {
         private static void Main()
         {
+
             var nativeWindowSettings = new NativeWindowSettings()
             {
                 Size = new Vector2i(800, 600),

@@ -14,4 +14,5 @@ void main(void)
 
 	// Here we assign the variable a dark red color to the out variable
 	vertexColor = vec4(0.5, 0.0, 0.0, 1.0);
+	
 }

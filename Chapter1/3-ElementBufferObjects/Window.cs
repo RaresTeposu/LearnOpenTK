@@ -16,6 +16,7 @@ namespace LearnOpenTK
     // This is called an Element Buffer Object. This tutorial will be all about how to set one up.
     public class Window : GameWindow
     {
+
         // We modify the vertex array to include four vertices for our rectangle.
         private readonly float[] _vertices =
         {
@@ -50,6 +51,7 @@ namespace LearnOpenTK
 
         protected override void OnLoad()
         {
+
             base.OnLoad();
 
             GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);

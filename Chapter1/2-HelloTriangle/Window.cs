@@ -6,15 +6,8 @@ using OpenTK.Windowing.Desktop;
 
 namespace LearnOpenTK
 {
-    // Be warned, there is a LOT of stuff here. It might seem complicated, but just take it slow and you'll be fine.
-    // OpenGL's initial hurdle is quite large, but once you get past that, things will start making more sense.
     public class Window : GameWindow
     {
-        // Create the vertices for our triangle. These are listed in normalized device coordinates (NDC)
-        // In NDC, (0, 0) is the center of the screen.
-        // Negative X coordinates move to the left, positive X move to the right.
-        // Negative Y coordinates move to the bottom, positive Y move to the top.
-        // OpenGL only supports rendering in 3D, so to create a flat triangle, the Z coordinate will be kept as 0.
         private readonly float[] _vertices =
         {
             -0.5f, -0.5f, 0.0f, // Bottom-left vertex
@@ -22,18 +15,9 @@ namespace LearnOpenTK
              0.0f,  0.5f, 0.0f  // Top vertex
         };
 
-        // These are the handles to OpenGL objects. A handle is an integer representing where the object lives on the
-        // graphics card. Consider them sort of like a pointer; we can't do anything with them directly, but we can
-        // send them to OpenGL functions that need them.
-
-        // What these objects are will be explained in OnLoad.
         private int _vertexBufferObject;
 
         private int _vertexArrayObject;
-
-        // This class is a wrapper around a shader, which helps us manage it.
-        // The shader class's code is in the Common project.
-        // What shaders are and what they're used for will be explained later in this tutorial.
         private Shader _shader;
 
         public Window(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeWindowSettings)
@@ -41,7 +25,7 @@ namespace LearnOpenTK
         {
         }
 
-        // Now, we start initializing OpenGL.
+
         protected override void OnLoad()
         {
             base.OnLoad();
@@ -60,8 +44,8 @@ namespace LearnOpenTK
             // First, we need to create a buffer. This function returns a handle to it, but as of right now, it's empty.
             _vertexBufferObject = GL.GenBuffer();
 
-            // Now, bind the buffer. OpenGL uses one global state, so after calling this,
-            // all future calls that modify the VBO will be applied to this buffer until another buffer is bound instead.
+            // Now, bind the buffer. OpenGL uses one global state, so after calling this, all future calls that modify the VBO will be applied to this buffer until another buffer is bound instead.
+
             // The first argument is an enum, specifying what type of buffer we're binding. A VBO is an ArrayBuffer.
             // There are multiple types of buffers, but for now, only the VBO is necessary.
             // The second argument is the handle to our buffer.

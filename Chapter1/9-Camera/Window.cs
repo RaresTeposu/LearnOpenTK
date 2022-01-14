@@ -157,7 +157,9 @@ namespace LearnOpenTK
 
             if (input.IsKeyDown(Keys.W))
             {
-                _camera.Position += _camera.Front * cameraSpeed * (float)e.Time; // Forward
+                Vector3 PitchVector = new Vector3(0.0f, Convert.ToSingle(Math.Sin(_camera.Pitch)), 0.0f);
+                _camera.Position += _camera.Front * cameraSpeed * (float)e.Time - (_camera.Up * PitchVector) * cameraSpeed * (float)e.Time;
+
             }
 
             if (input.IsKeyDown(Keys.S))
@@ -172,6 +174,7 @@ namespace LearnOpenTK
             {
                 _camera.Position += _camera.Right * cameraSpeed * (float)e.Time; // Right
             }
+            /*
             if (input.IsKeyDown(Keys.Space))
             {
                 _camera.Position += _camera.Up * cameraSpeed * (float)e.Time; // Up
@@ -180,6 +183,7 @@ namespace LearnOpenTK
             {
                 _camera.Position -= _camera.Up * cameraSpeed * (float)e.Time; // Down
             }
+            */
 
             // Get the mouse state
             var mouse = MouseState;
